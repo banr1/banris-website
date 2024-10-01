@@ -1,0 +1,7 @@
+package.json
+pnpm-lock.yaml
+.vscode/
+.github/
+.gitignore
+.next/
+node_modules/
