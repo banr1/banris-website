@@ -17,8 +17,8 @@ import TableOfContents from '@/components/TableOfContents';
  */
 export default function Page({ page, blockMap, isFullWidth }) {
   const { dark } = useTheme();
-  const isArticle = ['Post', 'Concept'].includes(page.type);
-  const isConcept = page.type === 'Concept';
+  const isArticle = ['Post', 'Note'].includes(page.type);
+  const isNote = page.type === 'Note';
 
   return (
     <article className={cn('flex flex-col', isFullWidth ? 'md:px-24' : 'items-center')}>
@@ -31,7 +31,7 @@ export default function Page({ page, blockMap, isFullWidth }) {
             'max-w-4xl px-4': !isFullWidth,
           })}
         >
-          {isConcept && <div>Updated on</div>}
+          {isNote && <div>Updated on</div>}
           <div className='mr-2 mb-4 md:ml-0'>
             <FormattedDate date={page.date} />
           </div>

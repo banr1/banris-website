@@ -8,7 +8,7 @@ export default function NavBar() {
 
   const links = [
     { id: 0, name: 'Blog', to: `${prefix}/blog` },
-    { id: 1, name: 'Concepts', to: `${prefix}/concepts` },
+    { id: 1, name: 'Notes', to: `${prefix}/notes` },
   ];
   return (
     <div className='flex flex-row flex-shrink-0 items-center'>

@@ -18,7 +18,7 @@ export default function Drafts({ postsToShow }) {
 }
 
 export async function getStaticProps() {
-  const posts = await getAllPages({ allowedTypes: ['Top', 'Post', 'Concept', 'Single'], allowedStatuses: ['Draft'], allowedLang: 'ja' });
+  const posts = await getAllPages({ allowedTypes: ['Top', 'Post', 'Note', 'Single'], allowedStatuses: ['Draft'], allowedLang: 'ja' });
   const postsToShow = posts.slice(0, clientConfig.postsPerPage);
 
   return {

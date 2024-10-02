@@ -33,7 +33,7 @@ export default function BlogPage({ page, blockMap }) {
       >
         <a>
           <button
-            onClick={() => router.push(page.type === 'Post' ? '/blog' : page.type === 'Concept' ? '/concepts' : '/')}
+            onClick={() => router.push(page.type === 'Post' ? '/blog' : page.type === 'Note' ? '/notes' : '/')}
             className='mt-2 cursor-pointer hover:text-gray-900 dark:hover:text-gray-100'
           >
             ← Back
@@ -60,7 +60,7 @@ export default function BlogPage({ page, blockMap }) {
 }
 
 export async function getStaticPaths() {
-  const pages = await getAllPages({ allowedTypes: ['Post', 'Concept'], allowedStatuses: ['Published', 'Draft'] });
+  const pages = await getAllPages({ allowedTypes: ['Post', 'Note'], allowedStatuses: ['Published', 'Draft'] });
   return {
     paths: pages.map(page => `/${page.slug}`),
     fallback: true,
@@ -68,7 +68,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const pages = await getAllPages({ allowedTypes: ['Post', 'Concept'], allowedStatuses: ['Published', 'Draft'] });
+  const pages = await getAllPages({ allowedTypes: ['Post', 'Note'], allowedStatuses: ['Published', 'Draft'] });
   // Find the current page by slug
   const page = pages.find(page => page.slug === slug);
 

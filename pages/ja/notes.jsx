@@ -4,23 +4,23 @@ import Container from '@/components/Container';
 import Pagination from '@/components/Pagination';
 import { getAllPages } from '@/lib/notion';
 import { useConfig } from '@/lib/config';
-import BlogPostLink from '@/components/BlogPostLink';
+import NotePostLink from '@/components/NotePostLink';
 
-export default function Concepts({ postsToShow, page, showNext }) {
+export default function Notes({ postsToShow, page, showNext }) {
   const { title, description } = useConfig();
 
   return (
     <Container title={title} description={description}>
       {postsToShow.map(post => (
-        <BlogPostLink key={post.id} post={post} />
+        <NotePostLink key={post.id} post={post} />
       ))}
-      {showNext && <Pagination page={page} showNext={showNext} blogOrConcepts={'concepts'} />}
+      {showNext && <Pagination page={page} showNext={showNext} blogOrNotes={'notes'} />}
     </Container>
   );
 }
 
 export async function getStaticProps() {
-  const posts = await getAllPages({ allowedTypes: ['Concept'], allowedStatuses: ['Published'], allowedLang: 'ja' });
+  const posts = await getAllPages({ allowedTypes: ['Note'], allowedStatuses: ['Published'], allowedLang: 'ja' });
   const postsToShow = posts.slice(0, clientConfig.postsPerPage);
   const totalPosts = posts.length;
   const showNext = totalPosts > clientConfig.postsPerPage;

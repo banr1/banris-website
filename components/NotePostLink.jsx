@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import useIsJapanese from '@/lib/useIsJapanese';
 
-const ConceptPostLink = ({ post }) => {
+const NotePostLink = ({ post }) => {
   const { isJapanese } = useIsJapanese();
   const prefix = isJapanese ? '/ja' : '';
 
@@ -18,4 +18,4 @@ const ConceptPostLink = ({ post }) => {
   );
 };
 
-export default ConceptPostLink;
+export default NotePostLink;
