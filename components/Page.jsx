@@ -17,18 +17,21 @@ import TableOfContents from '@/components/TableOfContents';
  */
 export default function Page({ page, blockMap, isFullWidth }) {
   const { dark } = useTheme();
+  const isArticle = ['Post', 'Concept'].includes(page.type);
+  const isConcept = page.type === 'Concept';
 
   return (
     <article className={cn('flex flex-col', isFullWidth ? 'md:px-24' : 'items-center')}>
       <h1 className={cn('w-full font-bold text-3xl text-gray-900 dark:text-white', { 'max-w-4xl px-4': !isFullWidth })}>
         {page.title}
       </h1>
-      {!['Top', 'Single'].includes(page.type) && (
+      {isArticle && (
         <nav
-          className={cn('w-full flex mt-7 items-start text-gray-500 dark:text-gray-400', {
+          className={cn('w-full flex my-5 gap-1 items-start text-gray-500 dark:text-gray-400', {
             'max-w-4xl px-4': !isFullWidth,
           })}
         >
+          {isConcept && <div>Updated on</div>}
           <div className='mr-2 mb-4 md:ml-0'>
             <FormattedDate date={page.date} />
           </div>
@@ -46,9 +49,7 @@ export default function Page({ page, blockMap, isFullWidth }) {
           )}
         >
           {/* `65px` is the height of expanded nav */}
-          {['Post', 'Concept'].includes(page.type) && (
-            <TableOfContents blockMap={blockMap} className='pt-3 sticky' style={{ top: '65px' }} />
-          )}
+          {isArticle && <TableOfContents blockMap={blockMap} className='pt-3 sticky' style={{ top: '65px' }} />}
         </div>
       </div>
     </article>

@@ -4,7 +4,7 @@ import Container from '@/components/Container';
 import Pagination from '@/components/Pagination';
 import { getAllPages } from '@/lib/notion';
 import { useConfig } from '@/lib/config';
-import BlogPostLink from '@/components/BlogPostLink';
+import ConceptPostLink from '@/components/ConceptPostLink';
 
 export default function Concepts({ postsToShow, page, showNext }) {
   const { title, description } = useConfig();
@@ -12,7 +12,7 @@ export default function Concepts({ postsToShow, page, showNext }) {
   return (
     <Container title={title} description={description}>
       {postsToShow.map(post => (
-        <BlogPostLink key={post.id} post={post} />
+        <ConceptPostLink key={post.id} post={post} />
       ))}
       {showNext && <Pagination page={page} showNext={showNext} blogOrConcepts={'concepts'} />}
     </Container>

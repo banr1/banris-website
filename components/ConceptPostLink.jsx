@@ -1,8 +1,7 @@
-import FormattedDate from '@/components/FormattedDate';
 import Link from 'next/link';
 import useIsJapanese from '@/lib/useIsJapanese';
 
-const BlogPostLink = ({ post }) => {
+const ConceptPostLink = ({ post }) => {
   const { isJapanese } = useIsJapanese();
   const prefix = isJapanese ? '/ja' : '';
 
@@ -13,13 +12,10 @@ const BlogPostLink = ({ post }) => {
           <h2 className='text-lg md:text-xl font-medium mb-2 cursor-pointer text-[#337ab7] dark:text-gray-100 hover:underline'>
             {post.title}
           </h2>
-          <time className='flex-shrink-0 text-gray-600 dark:text-gray-400'>
-            <FormattedDate date={post.date} />
-          </time>
         </header>
       </article>
     </Link>
   );
 };
 
-export default BlogPostLink;
+export default ConceptPostLink;
