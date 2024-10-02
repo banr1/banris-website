@@ -59,7 +59,7 @@
 .notion-quote,
 .notion-h-title {
   @apply p-0;
-  @apply my-3;
+  @apply my-1;
   line-height: var(--no-leading);
 }
 .notion-page-link {
@@ -179,8 +179,8 @@ pre[class*='language-'] {
 }
 
 .notion-list > li {
-  padding-left: 2px;
-  padding-right: 2px;
+  @apply pl-1;
+  @apply py-0;
 }
 
 /* Every block */

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Moon, Sun } from 'lucide-react';
 
+// This component is not used for now.
 const DarkModeToggle = () => {
   const [darkMode, setDarkMode] = useState(false);
 
