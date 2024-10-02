@@ -27,7 +27,7 @@ export default function Page({ page, blockMap, isFullWidth }) {
       </h1>
       {isArticle && (
         <nav
-          className={cn('w-full flex my-5 gap-1 items-start text-gray-500 dark:text-gray-400', {
+          className={cn('w-full flex mt-5 -mb-2 gap-1 items-start text-gray-500 dark:text-gray-400', {
             'max-w-4xl px-4': !isFullWidth,
           })}
         >
